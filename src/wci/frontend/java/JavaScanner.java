@@ -12,8 +12,8 @@ import static wci.frontend.pascal.PascalErrorCode.*;
  *
  * <p>The Pascal scanner.</p>
  *
- * <p>Copyright (c) 2009 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
+ * <p>Copyright (c) 2017 by Nosa Edogun, Ann Le, Adam Homann</p>
+ * <p>For CS 153 Assignment 2</p>
  */
 public class JavaScanner extends Scanner
 {

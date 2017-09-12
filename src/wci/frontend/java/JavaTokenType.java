@@ -6,37 +6,46 @@ import java.util.HashSet;
 import wci.frontend.TokenType;
 
 /**
- * <h1>PascalTokenType</h1>
+ * <h1>JavaTokenType</h1>
  *
- * <p>Pascal token types.</p>
+ * <p>Java token types.</p>
  *
- * <p>Copyright (c) 2009 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
+ * <p>Copyright (c) 2017 by Nosa Edogun, Ann Le, Adam Homann</p>
+ * <p>For CS 153 Assignment 2</p>
  */
 public enum JavaTokenType implements TokenType
 {
     // Reserved words.
-    AND, ARRAY, BEGIN, CASE, CONST, DIV, DO, DOWNTO, ELSE, END,
-    FILE, FOR, FUNCTION, GOTO, IF, IN, LABEL, MOD, NIL, NOT,
-    OF, OR, PACKED, PROCEDURE, PROGRAM, RECORD, REPEAT, SET,
-    THEN, TO, TYPE, UNTIL, VAR, WHILE, WITH,
+    	ABSTRACT, ASSERT, BREAK, CASE, CATCH, CLASS, CONST, CONTINUE, DEFAULT, 
+    	DO, ELSE, ENUM, EXTENDS, FALSE, FINAL, FINALLY, FOR, GOTO, IF,
+    IMPLEMENTS, IMPORT, INSTANCEOF, INTERFACE, NATIVE, NEW, NULL, PACKAGE, 
+    PRIVATE, PROTECTED, PUBLIC, RETURN, SHORT, STATIC, STRICTFP, SUPER,
+    SWITCH, SYNCHRONIZED, THIS, THROW, THROWS, TRANSIENT, TRUE, TRY, VOID,
+    VOLATILE, WHILE,
 
-    // Special symbols.
-    PLUS("+"), MINUS("-"), STAR("*"), SLASH("/"), COLON_EQUALS(":="),
-    DOT("."), COMMA(","), SEMICOLON(";"), COLON(":"), QUOTE("'"),
-    EQUALS("="), NOT_EQUALS("<>"), LESS_THAN("<"), LESS_EQUALS("<="),
-    GREATER_EQUALS(">="), GREATER_THAN(">"), LEFT_PAREN("("), RIGHT_PAREN(")"),
+    // Special symbols. In no particular order, I'll ask him if they should be
+    PLUS("+"), MINUS("-"), STAR("*"), SLASH("/"), MODULUS("%"), INCREMENT("++"),
+    DECREMENT("--"), EQUALS("="), BITWISE_AND("&"), BITWISE_OR("|"), BITWISE_XOR("^"),
+    BITWISE_COMPLIMENT("~"), LEFT_SHIFT("<<"), RIGHT_SHIFT(">>"), ZERO_FILL_RIGHT_SHIFT(">>>"),
+    DOT("."), COMMA(","), SEMICOLON(";"), COLON(":"), QUOTE("\""), CHAR_QUOTE("'"),
+    EQUALS_EQUALS("=="), LOGICAL_NOT("!"), NOT_EQUALS("!="), LESS_THAN("<"), LESS_EQUALS("<="),
+    GREATER_EQUALS(">="), GREATER_THAN(">"), AND("&&"), OR("||"), LEFT_PAREN("("), RIGHT_PAREN(")"),
     LEFT_BRACKET("["), RIGHT_BRACKET("]"), LEFT_BRACE("{"), RIGHT_BRACE("}"),
-    UP_ARROW("^"), DOT_DOT(".."),
-
+    ADD_ASSIGN("+="), SUBTRACT_ASSIGN("-="), MULTIPLY_ASSIGN("*="), DIVIDE_ASSIGN("/="),
+    MODULOUS_ASSIGN("%="), LEFT_SHIT_ASSIGN("<<="), RIGHT_SHIFT_ASSIGN(">>="),
+    BITWISE_AND_ASSIGN("&="), BITWISE_EXCLUSIVE_OR_ASSIGN("^="), BITWISE_INCLUSIVE_OR_ASSIGN("|="),
+    QUESTION("?"),
+    
+    // what are these for? They were in the pascal version, so before changing I want to know what
+    // they were here for.
     IDENTIFIER, INTEGER, REAL, STRING,
     ERROR, END_OF_FILE;
 
-    private static final int FIRST_RESERVED_INDEX = AND.ordinal();
-    private static final int LAST_RESERVED_INDEX  = WITH.ordinal();
+    private static final int FIRST_RESERVED_INDEX = ABSTRACT.ordinal();
+    private static final int LAST_RESERVED_INDEX  = WHILE.ordinal();
 
     private static final int FIRST_SPECIAL_INDEX = PLUS.ordinal();
-    private static final int LAST_SPECIAL_INDEX  = DOT_DOT.ordinal();
+    private static final int LAST_SPECIAL_INDEX  = QUESTION.ordinal();
 
     private String text;  // token text
 
