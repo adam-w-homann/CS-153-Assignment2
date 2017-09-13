@@ -1,10 +1,10 @@
 package wci.frontend.java.tokens;
 
 import wci.frontend.*;
-import wci.frontend.pascal.*;
+import wci.frontend.java.JavaToken;
 
-import static wci.frontend.pascal.PascalTokenType.*;
-import static wci.frontend.pascal.PascalErrorCode.*;
+import static wci.frontend.java.JavaTokenType.*;
+import static wci.frontend.java.JavaErrorCode.*;
 
 /**
  * <h1>PascalSpecialSymbolToken</h1>
@@ -14,7 +14,7 @@ import static wci.frontend.pascal.PascalErrorCode.*;
  * <p>Copyright (c) 2017 by Nosa Edogun, Ann Le, Adam Homann</p>
  * <p>For CS 153 Assignment 2</p>
  */
-public class JavaSpecialSymbolToken extends PascalToken
+public class JavaSpecialSymbolToken extends JavaToken
 {
     /**
      * Constructor.

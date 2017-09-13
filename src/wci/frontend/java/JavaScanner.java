@@ -1,11 +1,11 @@
 package wci.frontend.java;
 
 import wci.frontend.*;
-import wci.frontend.pascal.tokens.*;
+import wci.frontend.java.tokens.*;
 
 import static wci.frontend.Source.EOF;
-import static wci.frontend.pascal.PascalTokenType.*;
-import static wci.frontend.pascal.PascalErrorCode.*;
+import static wci.frontend.java.JavaTokenType.*;
+import static wci.frontend.java.JavaErrorCode.*;
 
 /**
  * <h1>PascalScanner</h1>
