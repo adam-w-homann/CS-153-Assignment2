@@ -45,20 +45,20 @@ public class JavaScanner extends Scanner
             token = new EofToken(source);
         }
         else if (Character.isLetter(currentChar)) {
-            token = new PascalWordToken(source);
+            token = new JavaWordToken(source);
         }
         else if (Character.isDigit(currentChar)) {
-            token = new PascalNumberToken(source);
+            token = new JavaNumberToken(source);
         }
         else if (currentChar == '\'') {
-            token = new PascalStringToken(source);
+            token = new JavaStringToken(source);
         }
         else if (JavaTokenType.SPECIAL_SYMBOLS
                  .containsKey(Character.toString(currentChar))) {
-            token = new PascalSpecialSymbolToken(source);
+            token = new JavaSpecialSymbolToken(source);
         }
         else {
-            token = new PascalErrorToken(source, INVALID_CHARACTER,
+            token = new JavaErrorToken(source, INVALID_CHARACTER,
                                          Character.toString(currentChar));
             nextChar();  // consume character
         }
