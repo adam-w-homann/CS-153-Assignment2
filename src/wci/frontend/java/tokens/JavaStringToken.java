@@ -30,7 +30,7 @@ public class JavaStringToken extends JavaToken
     }
 
     /**
-     * Extract a Pascal string token from the source.
+     * Extract a Java string token from the source.
      * @throws Exception if an error occurred.
      */
     protected void extract()
@@ -49,21 +49,45 @@ public class JavaStringToken extends JavaToken
                 currentChar = ' ';
             }
 
-            if ((currentChar != '\"') && (currentChar != EOF)) {
+            if ((currentChar != '\"') && (currentChar != EOF) && (currentChar != '\\')) {
                 textBuffer.append(currentChar);
                 valueBuffer.append(currentChar);
                 currentChar = nextChar();  // consume character
             }
 
-            // Quote?  Each pair of adjacent quotes represents a single-quote.
-            if (currentChar == '\'') {
-                while ((currentChar == '\'') && (peekChar() == '\'')) {
-                    textBuffer.append("''");
-                    valueBuffer.append(currentChar); // append single-quote
-                    currentChar = nextChar();        // consume pair of quotes
-                    currentChar = nextChar();
-                }
+            if (currentChar == '\\') {
+            		textBuffer.append(currentChar);
+            		currentChar = nextChar();
+            		textBuffer.append(currentChar);
+            		switch (currentChar) {
+        			case 't': 
+        				valueBuffer.append("\t");
+        				break;
+        			case 'b': 
+        				valueBuffer.append("\b");
+        				break;
+        			case 'n': 
+        				valueBuffer.append("\n");
+        				break;
+        			case 'r': 
+        				valueBuffer.append("\r");
+        				break;
+        			case 'f': 
+        				valueBuffer.append("\f");
+        				break;
+        			case '\'': 
+        				valueBuffer.append("\'");
+        				break;
+        			case '\"': 
+        				valueBuffer.append("\"");
+        				break;
+        			case '\\': 
+        				valueBuffer.append("\\");
+        				break;
+        			}
+            		currentChar = nextChar();
             }
+            
         } while ((currentChar != '\"') && (currentChar != EOF));
 
         if (currentChar == '\"') {
@@ -72,6 +96,10 @@ public class JavaStringToken extends JavaToken
 
             type = STRING;
             value = valueBuffer.toString();
+//            System.out.println("Ok here is the currentChar()");
+//            System.out.println(currentChar);
+//            System.out.println("Ok here is the peekChar()");
+//            System.out.println(peekChar());
         }
         else {
             type = ERROR;
