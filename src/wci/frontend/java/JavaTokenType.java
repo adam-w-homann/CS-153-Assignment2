@@ -34,11 +34,11 @@ public enum JavaTokenType implements TokenType
     ADD_ASSIGN("+="), SUBTRACT_ASSIGN("-="), MULTIPLY_ASSIGN("*="), DIVIDE_ASSIGN("/="),
     MODULOUS_ASSIGN("%="), LEFT_SHIT_ASSIGN("<<="), RIGHT_SHIFT_ASSIGN(">>="),
     BITWISE_AND_ASSIGN("&="), BITWISE_EXCLUSIVE_OR_ASSIGN("^="), BITWISE_INCLUSIVE_OR_ASSIGN("|="),
-    TAB("\t"), QUESTION("?"),
+    TAB("\t"), NEWLINE(""), QUESTION("?"),
     
     // what are these for? They were in the pascal version, so before changing I want to know what
     // they were here for.
-    IDENTIFIER, INTEGER, REAL, STRING,
+    IDENTIFIER, INTEGER, REAL, STRING, CHAR,
     ERROR, END_OF_FILE;
 
     private static final int FIRST_RESERVED_INDEX = ABSTRACT.ordinal();
