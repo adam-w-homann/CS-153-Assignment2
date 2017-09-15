@@ -34,7 +34,7 @@ public enum JavaTokenType implements TokenType
     ADD_ASSIGN("+="), SUBTRACT_ASSIGN("-="), MULTIPLY_ASSIGN("*="), DIVIDE_ASSIGN("/="),
     MODULOUS_ASSIGN("%="), LEFT_SHIT_ASSIGN("<<="), RIGHT_SHIFT_ASSIGN(">>="),
     BITWISE_AND_ASSIGN("&="), BITWISE_EXCLUSIVE_OR_ASSIGN("^="), BITWISE_INCLUSIVE_OR_ASSIGN("|="),
-    QUESTION("?"),
+    TAB("\t"), QUESTION("?"),
     
     // what are these for? They were in the pascal version, so before changing I want to know what
     // they were here for.
