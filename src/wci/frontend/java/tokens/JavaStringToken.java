@@ -30,7 +30,7 @@ public class JavaStringToken extends JavaToken
     }
 
     /**
-     * Extract a Pascal string token from the source.
+     * Extract a Java string token from the source.
      * @throws Exception if an error occurred.
      */
     protected void extract()
@@ -40,7 +40,7 @@ public class JavaStringToken extends JavaToken
         StringBuilder valueBuffer = new StringBuilder();
 
         char currentChar = nextChar();  // consume initial quote
-        textBuffer.append('\"');
+        textBuffer.append('\'');
 
         // Get string characters.
         do {
@@ -49,7 +49,7 @@ public class JavaStringToken extends JavaToken
                 currentChar = ' ';
             }
 
-            if ((currentChar != '\"') && (currentChar != EOF)) {
+            if ((currentChar != '\'') && (currentChar != EOF)) {
                 textBuffer.append(currentChar);
                 valueBuffer.append(currentChar);
                 currentChar = nextChar();  // consume character
@@ -64,9 +64,9 @@ public class JavaStringToken extends JavaToken
                     currentChar = nextChar();
                 }
             }
-        } while ((currentChar != '\"') && (currentChar != EOF));
+        } while ((currentChar != '\'') && (currentChar != EOF));
 
-        if (currentChar == '\"') {
+        if (currentChar == '\'') {
             nextChar();  // consume final quote
             textBuffer.append('\"');
 

@@ -28,7 +28,7 @@ public class JavaSpecialSymbolToken extends JavaToken
     }
 
     /**
-     * Extract a Pascal special symbol token from the source.
+     * Extract a Java special symbol token from the source.
      * @throws Exception if an error occurred.
      */
     protected void extract()
@@ -44,7 +44,9 @@ public class JavaSpecialSymbolToken extends JavaToken
             // Single-character special symbols.
             case '+':  case '-':  case '*':  case '/':  case ',':
             case ';':  case '\'': case '=':  case '(':  case ')':
-            case '[':  case ']':  case '{':  case '}':  case '^': {
+            case '[':  case ']':  case '{':  case '}':  case '^': 
+            case '?': case '"':
+            {
                 nextChar();  // consume character
                 break;
             }
