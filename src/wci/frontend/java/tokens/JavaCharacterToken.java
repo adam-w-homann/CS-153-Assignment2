@@ -13,7 +13,7 @@ import static wci.frontend.java.JavaErrorCode.*;
  *
  * <p> Pascal string tokens.</p>
  *
- * <p>Copyright (c) 2017 by Nosa Edogun, Ann Le, Adam Homann</p>
+ * <p>Copyright (c) 2017 by Nosa Edogun, Ann Le, Adam Homann, Garrick Kwan</p>
  * <p>For CS 153 Assignment 2</p>
  */
 public class JavaCharacterToken extends JavaToken
@@ -30,7 +30,7 @@ public class JavaCharacterToken extends JavaToken
     }
 
     /**
-     * Extract a Pascal string token from the source.
+     * Extract a Java string token from the source.
      * @throws Exception if an error occurred.
      */
     protected void extract()

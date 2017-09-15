@@ -13,7 +13,7 @@ import static wci.frontend.java.JavaErrorCode.*;
  *
  * <p>The Pascal scanner.</p>
  *
- * <p>Copyright (c) 2017 by Nosa Edogun, Ann Le, Adam Homann</p>
+ * <p>Copyright (c) 2017 by Nosa Edogun, Ann Le, Adam Homann, Garrick Kwan</p>
  * <p>For CS 153 Assignment 2</p>
  */
 public class JavaScanner extends Scanner
@@ -51,7 +51,6 @@ public class JavaScanner extends Scanner
             token = new JavaNumberToken(source);
         }
 
-        // had to change back to double quotes in order for character to work
         else if (currentChar == '\"') {
             token = new JavaStringToken(source);
         }

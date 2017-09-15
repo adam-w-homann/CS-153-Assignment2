@@ -7,7 +7,7 @@ import wci.frontend.*;
  *
  * <p>Base class for Pascal token classes.</p>
  *
- * <p>Copyright (c) 2017 by Nosa Edogun, Ann Le, Adam Homann</p>
+ * <p>Copyright (c) 2017 by Nosa Edogun, Ann Le, Adam Homann, Garrick Kwan</p>
  * <p>For CS 153 Assignment 2</p>
  */
 public class JavaToken extends Token

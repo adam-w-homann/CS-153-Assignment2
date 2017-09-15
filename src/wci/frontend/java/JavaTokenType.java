@@ -10,7 +10,7 @@ import wci.frontend.TokenType;
  *
  * <p>Java token types.</p>
  *
- * <p>Copyright (c) 2017 by Nosa Edogun, Ann Le, Adam Homann</p>
+ * <p>Copyright (c) 2017 by Nosa Edogun, Ann Le, Adam Homann, Garrick Kwan</p>
  * <p>For CS 153 Assignment 2</p>
  */
 public enum JavaTokenType implements TokenType
@@ -23,7 +23,7 @@ public enum JavaTokenType implements TokenType
     SWITCH, SYNCHRONIZED, THIS, THROW, THROWS, TRANSIENT, TRUE, TRY, VOID,
     VOLATILE, WHILE,
 
-    // Special symbols. In no particular order, I'll ask him if they should be
+    // Special symbols, in no particular order
     PLUS("+"), MINUS("-"), STAR("*"), SLASH("/"), MODULUS("%"), INCREMENT("++"),
     DECREMENT("--"), EQUALS("="), BITWISE_AND("&"), BITWISE_OR("|"), BITWISE_XOR("^"),
     BITWISE_COMPLIMENT("~"), LEFT_SHIFT("<<"), RIGHT_SHIFT(">>"), ZERO_FILL_RIGHT_SHIFT(">>>"),
@@ -36,8 +36,6 @@ public enum JavaTokenType implements TokenType
     BITWISE_AND_ASSIGN("&="), BITWISE_EXCLUSIVE_OR_ASSIGN("^="), BITWISE_INCLUSIVE_OR_ASSIGN("|="),
     TAB("\t"), NEWLINE(""), QUESTION("?"),
     
-    // what are these for? They were in the pascal version, so before changing I want to know what
-    // they were here for.
     IDENTIFIER, INTEGER, REAL, STRING, CHAR,
     ERROR, END_OF_FILE;
 
