@@ -40,7 +40,7 @@ public class JavaStringToken extends JavaToken
         StringBuilder valueBuffer = new StringBuilder();
 
         char currentChar = nextChar();  // consume initial quote
-        textBuffer.append('\'');
+        textBuffer.append('\"');
 
         // Get string characters.
         do {
@@ -49,7 +49,7 @@ public class JavaStringToken extends JavaToken
                 currentChar = ' ';
             }
 
-            if ((currentChar != '\'') && (currentChar != EOF)) {
+            if ((currentChar != '\"') && (currentChar != EOF)) {
                 textBuffer.append(currentChar);
                 valueBuffer.append(currentChar);
                 currentChar = nextChar();  // consume character
@@ -64,9 +64,36 @@ public class JavaStringToken extends JavaToken
                     currentChar = nextChar();
                 }
             }
-        } while ((currentChar != '\'') && (currentChar != EOF));
+            if (currentChar == '\t') {
+                while ((currentChar == '\'') && (peekChar() == '\'')) {
+                    textBuffer.append('\t');
+                    valueBuffer.append(currentChar); // append single-quote
+                    currentChar = nextChar();        // consume pair of quotes
+                    currentChar = nextChar();
+                }
+            }
+            
+            if (currentChar == '\n') {
+                while ((currentChar == '\'') && (peekChar() == '\'')) {
+                    textBuffer.append('\n');
+                    valueBuffer.append(currentChar); // append single-quote
+                    currentChar = nextChar();        // consume pair of quotes
+                    currentChar = nextChar();
+                }
+            }
+            
+            // Garrick initially had \a but \a is not a valid tab character
+            if (currentChar == 'a') {
+                while ((currentChar == '\'') && (peekChar() == '\'')) {
+                    textBuffer.append('a');
+                    valueBuffer.append(currentChar); // append single-quote
+                    currentChar = nextChar();        // consume pair of quotes
+                    currentChar = nextChar();
+                }
+            }
+        } while ((currentChar != '\"') && (currentChar != EOF));
 
-        if (currentChar == '\'') {
+        if (currentChar == '\"') {
             nextChar();  // consume final quote
             textBuffer.append('\"');
 
