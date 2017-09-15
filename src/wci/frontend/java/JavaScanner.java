@@ -4,6 +4,7 @@ import wci.frontend.*;
 import wci.frontend.java.tokens.*;
 
 import static wci.frontend.Source.EOF;
+import static wci.frontend.Source.EOL;
 import static wci.frontend.java.JavaTokenType.*;
 import static wci.frontend.java.JavaErrorCode.*;
 
@@ -35,7 +36,6 @@ public class JavaScanner extends Scanner
         throws Exception
     {
         skipWhiteSpace();
-
         Token token;
         char currentChar = currentChar();
 
@@ -75,18 +75,26 @@ public class JavaScanner extends Scanner
     {
         char currentChar = currentChar();
 
-        while (Character.isWhitespace(currentChar) || (currentChar == '{')) {
+        while (Character.isWhitespace(currentChar) || (currentChar == '/')) {
 
             // Start of a comment?
-            if (currentChar == '{') {
-                do {
-                    currentChar = nextChar();  // consume comment characters
-                } while ((currentChar != '}') && (currentChar != EOF));
-
-                // Found closing '}'?
-                if (currentChar == '}') {
-                    currentChar = nextChar();  // consume the '}'
-                }
+            if (currentChar == '/') {
+            		currentChar = nextChar(); // consume comment characters
+            		char tempChar = currentChar;
+            		char test = source.peekChar();
+            		if(tempChar == '/') {
+            			do {
+                            currentChar = nextChar();  // consume comment characters
+                        } while ((currentChar != EOL) && (currentChar != EOF));
+            		}
+            		if(tempChar == '*') {
+            			do {
+                            currentChar = nextChar();  // consume comment characters
+                            test = source.peekChar();
+                        } while (!(currentChar == '*' && source.peekChar() == '/') && (currentChar != EOF)); 
+            			currentChar = nextChar(); //consume the peekChar() and go to char after peekChar, so call nextChar() twice
+            			currentChar = nextChar();
+            		}
             }
 
             // Not a comment.

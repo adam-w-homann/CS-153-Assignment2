@@ -36,7 +36,6 @@ public class Java
         try {
             boolean intermediate = flags.indexOf('i') > -1;
             boolean xref         = flags.indexOf('x') > -1;
-
             source = new Source(new BufferedReader(new FileReader(filePath)));
             source.addMessageListener(new SourceMessageListener());
 
