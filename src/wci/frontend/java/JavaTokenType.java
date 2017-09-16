@@ -32,7 +32,7 @@ public enum JavaTokenType implements TokenType
     GREATER_EQUALS(">="), GREATER_THAN(">"), AND("&&"), OR("||"), LEFT_PAREN("("), RIGHT_PAREN(")"),
     LEFT_BRACKET("["), RIGHT_BRACKET("]"), LEFT_BRACE("{"), RIGHT_BRACE("}"),
     ADD_ASSIGN("+="), SUBTRACT_ASSIGN("-="), MULTIPLY_ASSIGN("*="), DIVIDE_ASSIGN("/="),
-    MODULOUS_ASSIGN("%="), LEFT_SHIT_ASSIGN("<<="), RIGHT_SHIFT_ASSIGN(">>="),
+    MODULOUS_ASSIGN("%="), LSHIFT_EQUALS("<<="), RSHIFT_EQUALS(">>="),
     BITWISE_AND_ASSIGN("&="), BITWISE_EXCLUSIVE_OR_ASSIGN("^="), BITWISE_INCLUSIVE_OR_ASSIGN("|="),
     TAB("\t"), NEWLINE(""), QUESTION("?"),
     

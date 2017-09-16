@@ -42,8 +42,8 @@ public class JavaSpecialSymbolToken extends JavaToken
         switch (currentChar) {
 
             // Single-character special symbols.
-            case '+':  case '-':  case '*':  case '/':  case ',':
-            case ';':  case '\'': case '=':  case '(':  case ')':
+            case '+':  case '-':  case '*':  case ',': case '/':
+            case ';':  case '\'':  case '(':  case ')':
             case '[':  case ']':  case '{':  case '}':  case '^': 
             case '?': case '"':
             {
@@ -63,7 +63,7 @@ public class JavaSpecialSymbolToken extends JavaToken
                 break;
             }
 
-            // < or <= or <>
+            // < or <= or << or <<=
             case '<': {
                 currentChar = nextChar();  // consume '<';
 
@@ -71,21 +71,34 @@ public class JavaSpecialSymbolToken extends JavaToken
                     text += currentChar;
                     nextChar();  // consume '='
                 }
-                else if (currentChar == '>') {
+                else if (currentChar == '<') {
                     text += currentChar;
-                    nextChar();  // consume '>'
+                    currentChar = nextChar();
+                    if(currentChar == '='){
+                    	text += currentChar;
+                    	nextChar(); // consume '='
+                    }
+         
                 }
 
                 break;
             }
 
-            // > or >=
+            // > or >= or >> or >>=
             case '>': {
                 currentChar = nextChar();  // consume '>';
 
                 if (currentChar == '=') {
                     text += currentChar;
                     nextChar();  // consume '='
+                }
+                else if (currentChar == '>'){
+                	text += currentChar();
+                	currentChar = nextChar(); // consume '>'
+                	if (currentChar == '='){
+                		text += currentChar;
+                		nextChar(); // consume '='
+                	}
                 }
 
                 break;
@@ -101,6 +114,18 @@ public class JavaSpecialSymbolToken extends JavaToken
                 }
 
                 break;
+            }
+              
+            // = or ==
+            case '=': {
+            	currentChar = nextChar(); // consume '='
+            	
+            	if (currentChar == '='){
+            		text += currentChar;
+            		nextChar(); // consume the next '='
+            	}
+            	
+            	break;
             }
 
             default: {
