@@ -24,8 +24,8 @@ public enum JavaTokenType implements TokenType
     VOLATILE, WHILE,
 
     // Special symbols, in no particular order
-    PLUS("+"), MINUS("-"), STAR("*"), SLASH("/"), MODULUS("%"), INCREMENT("++"),
-    DECREMENT("--"), EQUALS("="), BITWISE_AND("&"), BITWISE_OR("|"), BITWISE_XOR("^"),
+    PLUS("+"), MINUS("-"), MULT("*"), SLASH("/"), MODULUS("%"), INCREMENT("++"),
+    DECREMENT("--"), EQUALS("="), BITWISE_AND("&"), BITWISE_OR("|"), HAT("^"),
     BITWISE_COMPLIMENT("~"), LEFT_SHIFT("<<"), RIGHT_SHIFT(">>"), ZERO_FILL_RIGHT_SHIFT(">>>"),
     DOT("."), COMMA(","), SEMICOLON(";"), COLON(":"), QUOTE("\""), CHAR_QUOTE("'"),
     EQUALS_EQUALS("=="), LOGICAL_NOT("!"), NOT_EQUALS("!="), LESS_THAN("<"), LESS_EQUALS("<="),
